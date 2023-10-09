@@ -3,10 +3,11 @@
 /**
 * main - Entry point
 *
-* Description: print all alphabet letters
+* Description: print all alphabet letters without e and q
 *
 * Return: Always 0 (success)
 */
+
 int main(void)
 {
 	char ch = 'a';
@@ -14,7 +15,7 @@ int main(void)
 	while (ch <= 'z')
 	{
 		if (ch == 'e' || ch == 'q')
-			ch++
+			ch++;
 		putchar(ch);
 		ch++;
 	}
