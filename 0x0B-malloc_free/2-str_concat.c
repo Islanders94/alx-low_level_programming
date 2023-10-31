@@ -1,35 +1,70 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * str_concat - Concatenate two strings.
- * @s1: The first string.
- * @s2: The second string.
- * Return: A pointer to a newly allocated string , or NULL on failure.
+* str_concat - get ends of input and add together for size
+* @s1: input one to concat		
+* @s2: input two to concat
+* Return: concat of s1 and s2
  */
+
 char *str_concat(char *s1, char *s2)
+
 {
-Handle NULL inputs
 
-if (s1 == NULL)
-s1 = "";
-if (s2 == NULL)
-s2 = "";
+	char *conct;
 
-Calculate the lengths of s1 and s2
-	size_t len_s1 = strlen(s1);
-	size_t len_s2 = strlen(s2);
+	int i, ci;
 
-	Allocate memory for the concatenated string
-	char *conct = malloc(len_s1 + len_s2 + 1);  +1 for the null terminator
+	if (s1 == NULL)
+
+		s1 = "";
+
+	if (s2 == NULL)
+
+		s2 = "";
+	
+		i = ci = 0;
+
+	while (s1[i] != '\0')
+
+		i++;
+
+	while (s2[ci] != '\0')
+
+		ci++;
+
+	conct = malloc(sizeof(char) * (i + ci + 1));
 
 	if (conct == NULL)
-	return (NULL);
 
-Copy s1 and s2 into the concatenated string
-	strcpy(conct, s1);
-	strcat(conct, s2);
+		return (NULL);
 
-return (conct);
+	i = ci = 0;
+
+	while (s1[i] != '\0')
+
+	{
+
+		conct[i] = s1[i];
+
+		i++;
+
+	}
+
+	while (s2[ci] != '\0')
+
+	{
+
+		conct[i] = s2[ci];
+
+		i++, ci++;
+
+	}
+
+	conct[i] = '\0';
+
+	return (conct);
+
 }
+
