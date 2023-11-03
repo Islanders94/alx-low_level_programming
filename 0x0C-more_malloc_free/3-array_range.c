@@ -1,26 +1,31 @@
 #include "main.h"
 
 /**
-* _calloc - allocate memory using malloc and initialize it to zero
-*@nmemb: number of elements
-*@size: size of the memory block to be allocated
+* array_range - creates an array of integers
+* @min: smallest number in the array
+* @max: lagrest value in the array
 *
-*Return: poiner to the address of the memory block
+* Return: pointer to the address of the memory block
 */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	char *block;
-	unsigned int i;
 
-	if (nmemb == 0 || size == 0)
+int *array_range(int min, int max)
+{
+	int *block;
+	int i, j = 0;
+
+	if (min > max)
 		return (NULL);
-	block = malloc(nmemb * size);
+	block = malloc(sizeof(*block) * ((max - min) + 1));
 	if (block != NULL)
 	{
-		for (i = 0; i < (nmemb * size); i++)
-			block[i] = 0;
+		for (i = min; i <= max; i++)
+		{
+			block[j] = i;
+			j++;
+		}
 		return (block);
 	}
 	else
 		return (NULL);
+
 }
